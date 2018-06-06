@@ -11,14 +11,13 @@ function getNews() {// q=${searchForText}
 }
 
 function addNews() {
-    // const data = 
-    console.log(JSON.parse(this.responseText));
-    // console.log(data)
-    // data.forEach(element => {
-    //     const id = element.id
-    //     console.log(id);
-    // });
-    // }
+    const data = JSON.parse(this.responseText);
+    console.log(data)
+    data.forEach(element => {
+        const id = element.id
+        console.log(id);
+    });
+    }
 
 
 function handleError() {
