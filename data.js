@@ -1,22 +1,4 @@
-// window.onload = () => {
-//     getNews();
-// }
-
-// function getNews() {// q=${searchForText}
-//     const articleRequest = new XMLHttpRequest();
-//     articleRequest.open('GET', '../data/cohorts.json');
-//     articleRequest.onload = addNews;
-//     articleRequest.onerror = handleError;
-//     articleRequest.send();
-// }
-
-// function addNews() {
-//     const data = JSON.parse(this.responseText);
-//     console.log(data)
-//     }
-
-
-// function handleError() {
-//     console.log('se ha presentado un error');
-// }
-
+fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json').then((usersResponse) =>{
+  return usersResponse.json();
+}).then();
+// con fecth
