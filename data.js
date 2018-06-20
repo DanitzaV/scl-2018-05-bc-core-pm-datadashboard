@@ -47,4 +47,13 @@ function filterUsers(users, search) {
 
 function processCohortData(options) {
 
+    Promise.all(llamadas).then((responses) => {
+        return responses.map(response => response.json());
+        //En caso de que sean llamadas a api
+    }).then((jsonResponses) => {
+        console.log(jsonResponses)
+    }).catch((error) => {
+        //Código que maneja errores
+    });
 }
+// con fetch
