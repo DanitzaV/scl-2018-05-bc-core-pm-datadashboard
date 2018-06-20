@@ -15,6 +15,7 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
   // Código que ocupa los jsons...
   //
 }).catch(
+  
   (error)=>{ // Al menos una llamada falló
     console.log(error);
   }
