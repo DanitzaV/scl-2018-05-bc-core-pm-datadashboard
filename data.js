@@ -25,6 +25,11 @@ function computeUsersStats(users, progress, courses) {
   // console.log(users);
   let container = document.getElementById('contenedor');
   console.log(progress);
+
+
+
+
+
   // console.log(courses);
   const usu = users.map(usua => {
     return {
