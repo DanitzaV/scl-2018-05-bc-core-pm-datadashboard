@@ -1,13 +1,13 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0em;
+    padding: 0em;
 }
 
 .banner {
     font-family: 'Bitter', serif;
     background-color: #FFE521;
     padding: 1em;
-    height: 100px;
+    height: 6.25em;
 }
 
 .logo {
@@ -20,10 +20,69 @@
 
 .input-group {
     float: right;
-    bottom: 50px;
+    bottom: 3.125em;
 }
+
+
+/* propiedades de botón de búsqueda */
 
 .btn-outline-secondary {
     background-color: #FF009E;
-    border-bottom-color: #FF009E;
+    border: none;
+    color: white;
 }
+
+
+/* propiedades de dropdown */
+
+.dropbtn {
+    background-color: #56F89A;
+    color: white;
+    padding: 1em;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10em;
+    box-shadow: 0em 0.5em 1em 0em rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #56F89A;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .col-sm-10 {
+        height: 3em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {}

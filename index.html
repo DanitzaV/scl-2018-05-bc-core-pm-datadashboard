@@ -22,14 +22,14 @@
                     <img src="/src/img/image_360.png" class="img-fluid" alt="responsive image">
                 </div>
                 <!-- Banner -->
-                <div class="col-10 text-center banner">
+                <div class="col-sm-10 col-md-10 col-10  text-center banner">
                     <h1>Dashboard</h1>
                     <!-- Barra de búsqueda -->
                     <div class="input-group col-3">
                         <input type="text" class="form-control" placeholder="Ingresa nombre">
                         <!-- Botón de búsqueda -->
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="">Buscar</button>
+                            <button class="btn btn-outline-secondary" type="button" onclick="filterUsers()">Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -40,6 +40,42 @@
             </div>
 
     </header>
+    <!-- Contenedor de dropdown -->
+    <div class="container">
+        <div class="row">
+            <!-- Dropdown para sedes -->
+            <div class="dropdown">
+                <button class="dropbtn">Sedes</button>
+                <div class="dropdown-content">
+                    <a href="#">CDMX</a>
+                    <a href="#">Lima</a>
+                    <a href="#">São Paulo</a>
+                    <a href="#">Santiago</a>
+                </div>
+            </div>
+            <!-- Dropdown para cohorts -->
+            <div class="dropdown">
+                <button class="dropbtn">Cohorts</button>
+                <div class="dropdown-content">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </div>
+            <!-- Dropdown para cursos -->
+            <div class="dropdown">
+                <button class="dropbtn">Cursos</button>
+                <div class="dropdown-content">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </div>
+            <button id=dropdownFilter class="btn-outline-secondary" onclick="">Filtrar</button>
+        </div>
+    </div>
 
 
 
@@ -48,9 +84,11 @@
 
 
 
-    <!-- JS, links para bootstrap -->
+    <!--Links para bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- JS -->
     <script src="main.js" type="module"></script>
     <script src="data.js"></script>
 </body>
