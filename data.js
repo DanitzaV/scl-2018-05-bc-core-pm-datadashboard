@@ -26,9 +26,9 @@ function computeUsersStats(users, progress, courses) {
   let container = document.getElementById('contenedor');
   console.log(progress);
 
-
-
-
+// const cursos =  courses.map(ele => {
+//   console.log(e.id)
+// })
 
   // console.log(courses);
   const usu = users.map(usua => {
