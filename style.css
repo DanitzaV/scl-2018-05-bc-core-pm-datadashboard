@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.banner {
+    font-family: 'Bitter', serif;
+    background-color: #FFE521;
+    padding: 1em;
+    height: 100px;
+}
+
+.logo {
+    width: 100%;
+    margin: auto;
+}
+
+
+/* Posición de la barra de búsqueda */
+
+.input-group {
+    float: right;
+    bottom: 50px;
+}
+
+.btn-outline-secondary {
+    background-color: #FF009E;
+    border-bottom-color: #FF009E;
+}
