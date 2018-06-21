@@ -23,17 +23,37 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
 
 function computeUsersStats(users, progress, courses) {
   // console.log(users);
-  // console.log(progress);
+  let container = document.getElementById('contenedor');
+  console.log(progress);
   // console.log(courses);
   const usu = users.map(usua => {
-    console.log(usua.signupCohort === 'lim-2018-03-pre-core-pw');
+    return {
+      id: usua.id,
+      name: usua.name,
+      signupCohort: usua.signupCohort,
+    };
   });
-  console.log(usu);
+  const objetoComoTexto = JSON.stringify(usu);
+  container.innerHTML = objetoComoTexto;
+  const progreso = Object.entries(progress);
+  progreso.forEach(element => {
+    console.log(element[1].intro.percent);
+  });
+  // let hi = progreso.map(element => {
+  //   // console.log(element[1].intro.percent);
+  //   return Object.keys(element)
+  // });
+  // console.log(hi);
+  
+  console.log(progressUser);
+  console.log(progreso);
+  
+
   const usuarios = users.find(item => item.signupCohort === 'lim-2018-03-pre-core-pw');
   const cohort = courses.find(item => item.id === 'lim-2018-03-pre-core-pw');
   const coursesLim = Object.keys(cohort.coursesIndex);
-  console.log(cohort);
-  console.log(usuarios);
+  // console.log(cohort);
+  // console.log(usuarios);
 }
 
 function sortUsers(users, orderBy, orderDirection) {
