@@ -19,7 +19,7 @@
             <div class="row">
                 <!-- Logo -->
                 <div class="col-2 logo">
-                    <img src="/src/img/image_360.png" class="img-fluid" alt="responsive image">
+                    <img src="../src/img/image_360.png" class="img-fluid" alt="responsive image">
                 </div>
                 <!-- Banner -->
                 <div class="col-sm-10 col-md-10 col-10  text-center banner">
@@ -33,54 +33,50 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row">
-                <div class="col-sm-1 col-md-6 col-lg-8 col-xl-12 ">
-                </div>
-            </div> -->
+
             </div>
 
     </header>
-    <!-- Contenedor de dropdown -->
-    <div class="container">
-        <div class="row">
-            <!-- Dropdown para sedes -->
-            <div class="dropdown">
-                <button class="dropbtn">Sedes</button>
-                <div class="dropdown-content">
-                    <a href="#">CDMX</a>
-                    <a href="#">Lima</a>
-                    <a href="#">São Paulo</a>
-                    <a href="#">Santiago</a>
-                </div>
+    <!-- Menú cohorts -->
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cohorts
+        </button>
+        <div class="dropdown-menu" id="menuDesplegable" aria-labelledby="dropdownMenu2">
+            <div id="enabled">
+                <button class="dropdown-item" type="button"></button>
             </div>
-            <!-- Dropdown para cohorts -->
-            <div class="dropdown">
-                <button class="dropbtn">Cohorts</button>
-                <div class="dropdown-content">
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
+            <div class="dropdown-divider" id="divider">
+                <a class="dropdown-item disabled" href="#"></a>
             </div>
-            <!-- Dropdown para cursos -->
-            <div class="dropdown">
-                <button class="dropbtn">Cursos</button>
-                <div class="dropdown-content">
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
-            </div>
-            <button id=dropdownFilter class="btn-outline-secondary" onclick="">Filtrar</button>
         </div>
     </div>
 
+    <div class="container-table">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Lecturas</th>
+                    <th scope="col">Quizzes</th>
+                    <th scope="col">Ejercicios</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
 
-
-
-
+            </tbody>
+        </table>
+    </div>
 
 
 
@@ -89,7 +85,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <!-- JS -->
-    <script src="main.js" type="module"></script>
+    <script src="main.js"></script>
     <script src="data.js"></script>
 </body>
 
