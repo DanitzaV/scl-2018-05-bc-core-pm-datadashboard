@@ -16,7 +16,10 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
     //     console.log(Object.entries(element[1]));
     //   });
     dropdown1(responseJsons[2]);
-    computeUsersStats(responseJsons[0], responseJsons[1], responseJsons[2]);
+    let cohorts = responseJsons[2];
+    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
+    const courses = Object.keys(cohort.coursesIndex);
+    computeUsersStats(responseJsons[0], responseJsons[1], courses);
     //
     // Código que ocupa los jsons...
     //
@@ -27,27 +30,38 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
     }
 );
 
+
+
+
 function computeUsersStats(users, progress, courses) {
+    // console.log(courses)
     for (let i = 0; i < users.length; i++) {
-        let id = users[i].id; // guardo el id del usuario
-        let progresoUser = progress[id]; // relacionar el progreso con el id de cada usuario
-        console.log(progresoUser);
+        let idUser = users[i].id; // guardo el id del usuario
+
+        //console.log(progress[idUser]);
+        let progreso = progress[idUser]
+            //para evitar error con los progresos vacíos
+        if (JSON.stringify(progreso) === '{}') {
+            continue;
+        }
+        //console.log(progreso);
+        courses.forEach(element => {
+            console.log(progreso[element].percent)
+        });
     }
-    courses.forEach(cursos => { // recorro los cursos e-e 
-        console.log(cursos);
-    });
-    var dasd = Object.values(progress);
+
+    // var dasd = Object.values(progress);
     // console.log(dasd);
 
-    var nuevo = dasd.map(element => {
-        return Object.values(element.intro);
-    });
-    console.log(nuevo);
+    // var nuevo = dasd.map(element => {
+    //     return Object.values(element.intro);
+    // });
+    //console.log(nuevo);
     var porcentajes = [];
-    nuevo.forEach(element => {
-        // console.log(element.percent)
-        porcentajes.push(element.percent);
-    });
+    // nuevo.forEach(element => {
+    //     // console.log(element.percent)
+    //     porcentajes.push(element.percent);
+    // });
     // console.log(porcentajes)
     // console.log(progress);
     let user = users.map(element => {
