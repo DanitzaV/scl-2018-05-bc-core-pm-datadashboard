@@ -91,7 +91,6 @@ function percent() {
 
 function sortUsers(users, orderBy, orderDirection) {
 
-
 }
 
 function filterUsers(users, search) {
