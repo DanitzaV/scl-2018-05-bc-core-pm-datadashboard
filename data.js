@@ -9,14 +9,14 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
         }));
     }
 ).then((responseJsons) => { // Arreglo de respuestas en json
-    console.log(responseJsons);
-    let progress = Object.entries(responseJsons[1]);
+    // console.log(responseJsons);
+    //   let progress = Object.entries(responseJsons[1]);
 
-    progress.forEach(element => {
-        console.log(Object.entries(element[1]));
-    });
+    //   progress.forEach(element => {
+    //     console.log(Object.entries(element[1]));
+    //   });
     dropdown1(responseJsons[2]);
-    computeUsersStats(responseJsons[0], progress, responseJsons[2]);
+    computeUsersStats(responseJsons[0], responseJsons[1], responseJsons[2]);
     //
     // Código que ocupa los jsons...
     //
@@ -28,7 +28,27 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
 );
 
 function computeUsersStats(users, progress, courses) {
+    for (let i = 0; i < users.length; i++) {
+        let id = users[i].id; // guardo el id del usuario
+        let progresoUser = progress[id]; // relacionar el progreso con el id de cada usuario
+        console.log(progresoUser);
+    }
+    courses.forEach(cursos => { // recorro los cursos e-e 
+        console.log(cursos);
+    });
+    var dasd = Object.values(progress);
+    // console.log(dasd);
 
+    var nuevo = dasd.map(element => {
+        return Object.values(element.intro);
+    });
+    console.log(nuevo);
+    var porcentajes = [];
+    nuevo.forEach(element => {
+        // console.log(element.percent)
+        porcentajes.push(element.percent);
+    });
+    // console.log(porcentajes)
     // console.log(progress);
     let user = users.map(element => {
         return {
@@ -58,6 +78,11 @@ function computeUsersStats(users, progress, courses) {
     });
     // console.log(user);
 }
+
+function promedio() {
+
+}
+
 
 function percent() {
 
