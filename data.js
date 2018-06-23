@@ -46,7 +46,17 @@ function computeUsersStats(users, progress, courses) {
         }
         //console.log(progreso);
         courses.forEach(element => {
-            console.log(progreso[element].percent)
+            let percent = progreso[element].percent;
+            const unidades = Object.values(progreso[element].units);
+            console.log(unidades);
+
+            unidades.forEach(element2 => {
+
+
+            });
+
+
+            // console.log(progreso[element].percent)
         });
     }
 
