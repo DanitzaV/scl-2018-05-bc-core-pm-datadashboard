@@ -1,105 +1,103 @@
 Promise.all([ // Ejecuta todas las llamadas de manera paralela
-    fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json'),
-    fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json'),
-    fetch('../data/cohorts.json')
+  fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json'),
+  fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json'),
+  fetch('../data/cohorts.json')
 ]).then(
-    (responses) => { // Responde a todas las promesas
-        return Promise.all(responses.map((response) => {
-            return response.json();
-        }));
-    }
+  (responses) => { // Responde a todas las promesas
+    return Promise.all(responses.map((response) => {
+      return response.json();
+    }));
+  }
 ).then((responseJsons) => { // Arreglo de respuestas en json
-    // console.log(responseJsons);
-    //   let progress = Object.entries(responseJsons[1]);
+  // console.log(responseJsons);
+  //   let progress = Object.entries(responseJsons[1]);
 
-    //   progress.forEach(element => {
-    //     console.log(Object.entries(element[1]));
-    //   });
-    dropdown1(responseJsons[2]);
-    let cohorts = responseJsons[2];
-    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
-    const courses = Object.keys(cohort.coursesIndex);
-    computeUsersStats(responseJsons[0], responseJsons[1], courses);
-    //
-    // Código que ocupa los jsons...
-    //
+  //   progress.forEach(element => {
+  //     console.log(Object.entries(element[1]));
+  //   });
+  dropdown1(responseJsons[2]);
+  let cohorts = responseJsons[2];
+  const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
+  const courses = Object.keys(cohort.coursesIndex);
+  computeUsersStats(responseJsons[0], responseJsons[1], courses);
+  //
+  // Código que ocupa los jsons...
+  //
 }).catch(
 
-    (error) => { // Al menos una llamada falló
-        console.log(error);
-    }
+  (error) => { // Al menos una llamada falló
+    console.log(error);
+  }
 );
 
 
-
-
 function computeUsersStats(users, progress, courses) {
-    // console.log(courses)
-    for (let i = 0; i < users.length; i++) {
-        let idUser = users[i].id; // guardo el id del usuario
+  // console.log(courses)
+  for (let i = 0; i < users.length; i++) {
+    let idUser = users[i].id; // guardo el id del usuario
 
-        //console.log(progress[idUser]);
-        let progreso = progress[idUser]
-            //para evitar error con los progresos vacíos
-        if (JSON.stringify(progreso) === '{}') {
-            continue;
-        }
-        //console.log(progreso);
-        courses.forEach(element => {
-            let percent = progreso[element].percent;
-            const unidades = Object.values(progreso[element].units);
-            console.log(unidades);
-
-            unidades.forEach(element2 => {
-
-
-            });
-
-
-            // console.log(progreso[element].percent)
-        });
+    // console.log(progress[idUser]);
+    let progreso = progress[idUser];
+    // para evitar error con los progresos vacíos
+    if (JSON.stringify(progreso) === '{}') {
+      continue;
     }
+    // console.log(progreso);
+    courses.forEach(element => {
+      let percent = progreso[element].percent;
+      const unidades = Object.values(progreso[element].units);
+      console.log(unidades);
 
-    // var dasd = Object.values(progress);
-    // console.log(dasd);
+      unidades.forEach(element2 => {
 
-    // var nuevo = dasd.map(element => {
-    //     return Object.values(element.intro);
-    // });
-    //console.log(nuevo);
-    var porcentajes = [];
-    // nuevo.forEach(element => {
-    //     // console.log(element.percent)
-    //     porcentajes.push(element.percent);
-    // });
-    // console.log(porcentajes)
-    // console.log(progress);
-    let user = users.map(element => {
-        return {
-            id: element.id,
-            name: element.name,
-            stats: {
-                percent: 0,
-                exercises: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0
-                },
-                reads: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0
-                },
-                quizzes: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0,
-                    scoreSum: 0,
-                    scoreAvg: 0,
-                },
-            }
-        };
+
+      });
+
+
+      // console.log(progreso[element].percent)
     });
+  }
+
+  // var dasd = Object.values(progress);
+  // console.log(dasd);
+
+  // var nuevo = dasd.map(element => {
+  //     return Object.values(element.intro);
+  // });
+  // console.log(nuevo);
+  var porcentajes = [];
+  // nuevo.forEach(element => {
+  //     // console.log(element.percent)
+  //     porcentajes.push(element.percent);
+  // });
+  // console.log(porcentajes)
+  // console.log(progress);
+  let user = users.map(element => {
+    return {
+      id: element.id,
+      name: element.name,
+      stats: {
+        percent: 0,
+        exercises: {
+          total: 0,
+          completed: 0,
+          percent: 0
+        },
+        reads: {
+          total: 0,
+          completed: 0,
+          percent: 0
+        },
+        quizzes: {
+          total: 0,
+          completed: 0,
+          percent: 0,
+          scoreSum: 0,
+          scoreAvg: 0,
+        },
+      }
+    };
+  });
     // console.log(user);
 }
 
@@ -118,7 +116,7 @@ function sortUsers(users, orderBy, orderDirection) {
 }
 
 function filterUsers(users, search) {
-    // acá hay que llamar al click del botón de filtrado!!!! 
+  // acá hay que llamar al click del botón de filtrado!!!! 
 
 }
 
