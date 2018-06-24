@@ -113,7 +113,7 @@ function computeUsersStats(users, progress, courses) {
     });
   }
   // console.log(newUser);
-  template(newUser)
+  cohort(newUser);
   
   
   
