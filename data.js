@@ -19,6 +19,7 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
     let cohorts = responseJsons[2];
     const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
     const courses = Object.keys(cohort.coursesIndex);
+
     computeUsersStats(responseJsons[0], responseJsons[1], courses);
     //
     // Código que ocupa los jsons...
@@ -31,10 +32,10 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
 );
 
 
-
-
 function computeUsersStats(users, progress, courses) {
     // console.log(courses)
+    let newUser = [];
+
     for (let i = 0; i < users.length; i++) {
         let idUser = users[i].id; // guardo el id del usuario
 
@@ -44,70 +45,122 @@ function computeUsersStats(users, progress, courses) {
         if (JSON.stringify(progreso) === '{}') {
             continue;
         }
-        //console.log(progreso);
+
+        let readsTotal = 0;
+        let readsCompleted = 0;
+        let quizTotal = 0;
+        let quizCompleted = 0;
+        let practiceTotal = 0;
+        let practiceCompleted = 0;
+        let scoreSumQuiz = 0;
+
+
         courses.forEach(element => {
             let percent = progreso[element].percent;
             const unidades = Object.values(progreso[element].units);
-            // console.log(percent)
+
 
             unidades.forEach(element2 => {
 
-                console.log(element2.parts);
+                // console.log(element2.parts);
                 Object.values(element2.parts).forEach(element3 => {
 
-                    console.log(element3.type);
-                })
+                    switch (element3.type) {
+                        case 'read':
+                            readsTotal++;
+                            if (element3.completed == 1) {
+                                readsCompleted++;
+                            }
+
+                        case 'quiz':
+                            quizTotal++;
+                            if (element3.completed == 1) {
+                                quizCompleted++;
+                                scoreSumQuiz += element3.score;
+                            }
 
 
-            });
+                        case 'practice':
+                            practiceTotal++;
+                            if (element3.completed == 1) {
+                                practiceCompleted++;
+                            }
+                    };
+                });
 
+            }); //cierre de forEach (unidades)
 
-            // console.log(progreso[element].percent)
-        });
-    }
-
-    // var dasd = Object.values(progress);
-    // console.log(dasd);
-
-    // var nuevo = dasd.map(element => {
-    //     return Object.values(element.intro);
-    // });
-    //console.log(nuevo);
-    var porcentajes = [];
-    // nuevo.forEach(element => {
-    //     // console.log(element.percent)
-    //     porcentajes.push(element.percent);
-    // });
-    // console.log(porcentajes)
-    // console.log(progress);
-    let user = users.map(element => {
-        return {
-            id: element.id,
-            name: element.name,
-            stats: {
-                percent: 0,
+            users[i].stats = {
+                percent: percent,
                 exercises: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0
+                    total: practiceTotal,
+                    completed: practiceCompleted,
+                    percent: Math.round((practiceCompleted / practiceTotal) * 100),
                 },
                 reads: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0
+                    total: readsTotal,
+                    completed: readsCompleted,
+                    percent: Math.round((readsCompleted / readsTotal) * 100),
                 },
                 quizzes: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0,
-                    scoreSum: 0,
-                    scoreAvg: 0,
-                },
+                    total: quizTotal,
+                    completed: quizCompleted,
+                    percent: Math.round((quizCompleted / quizTotal) * 100),
+                    scoreSum: scoreSumQuiz,
+                    scoreAvg: Math.round(scoreSumQuiz / quizCompleted),
+                }
+
             }
-        };
-    });
-    // console.log(user);
-}
+            newUser.push(users[i]);
+        });
+
+    }
+    console.log(newUser)
+};
+
+
+// var dasd = Object.values(progress);
+// console.log(dasd);
+
+// var nuevo = dasd.map(element => {
+//     return Object.values(element.intro);
+// });
+//console.log(nuevo);
+//var porcentajes = [];
+// nuevo.forEach(element => {
+//     // console.log(element.percent)
+//     porcentajes.push(element.percent);
+// });
+// console.log(porcentajes)
+// console.log(progress);
+// let user = users.map(element => {
+//     return {
+//         id: element.id,
+//         name: element.name,
+//         stats: {
+//             percent: 0,
+//             exercises: {
+//                 total: 0,
+//                 completed: 0,
+//                 percent: 0
+//             },
+//             reads: {
+//                 total: 0,
+//                 completed: 0,
+//                 percent: 0
+//             },
+//             quizzes: {
+//                 total: 0,
+//                 completed: 0,
+//                 percent: 0,
+//                 scoreSum: 0,
+//                 scoreAvg: 0,
+//             },
+//         }
+//     };
+// });
+// console.log(user);
+
 
 function promedio() {
 
