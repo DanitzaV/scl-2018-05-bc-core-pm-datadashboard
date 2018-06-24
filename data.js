@@ -16,6 +16,7 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
   //     console.log(Object.entries(element[1]));
   //   });
   dropdown1(responseJsons[2]);
+  filterUsers(responseJsons[0])
   let cohorts = responseJsons[2];
   const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
   const courses = Object.keys(cohort.coursesIndex);
@@ -80,7 +81,7 @@ function computeUsersStats(users, progress, courses) {
 
           case 'practice':
             practiceTotal++;
-            if (element3.completed == 1) {
+            if (element3.completed == 1) { 
               practiceCompleted++;
             }
           };
@@ -111,27 +112,25 @@ function computeUsersStats(users, progress, courses) {
       newUser.push(users[i]);
     });
   }
-  console.log(newUser);
+  // console.log(newUser);
+  template(newUser)
+  
+  
+  
+  
 };
 
 
-function promedio() {
-
-}
-
-
-function percent() {
-
+  // acá hay que llamar al click del botón de filtrado!!!! 
+function filterUsers(users, search) {
+   
+ 
+    console.log()
 }
 
 
 function sortUsers(users, orderBy, orderDirection) {
-
-}
-
-function filterUsers(users, search) {
-  // acá hay que llamar al click del botón de filtrado!!!! 
-
+  
 }
 
 
