@@ -16,7 +16,7 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
   //     console.log(Object.entries(element[1]));
   //   });
   dropdown1(responseJsons[2]);
-  filterUsers(responseJsons[0])
+  filterUsers(responseJsons[0]);
   let cohorts = responseJsons[2];
   const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
   const courses = Object.keys(cohort.coursesIndex);
@@ -114,18 +114,12 @@ function computeUsersStats(users, progress, courses) {
   }
   // console.log(newUser);
   cohort(newUser);
-  
-  
-  
-  
 };
 
 
-  // acá hay que llamar al click del botón de filtrado!!!! 
+// acá hay que llamar al click del botón de filtrado!!!! 
 function filterUsers(users, search) {
-   
- 
-    console.log()
+  console.log();
 }
 
 

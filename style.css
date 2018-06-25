@@ -47,9 +47,9 @@
 
 @media (min-width: 768px) and (max-width: 991.98px) {}
 
-.lista{
-    /* display: none; */
+#table{
+    margin-left: 14em;
 }
-.container-table{
-    /* display: none; */
+#dropdownMenu2{
+    margin-left: 16.9em;
 }
