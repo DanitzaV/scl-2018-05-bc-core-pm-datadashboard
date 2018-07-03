@@ -114,7 +114,7 @@ function computeUsersStats(users, progress, courses) {
     }
     // console.log(newUser);
     cohort(newUser);
-
+    //acá poner un return
 
 };
 
